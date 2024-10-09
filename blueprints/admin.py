@@ -55,3 +55,46 @@ def user_editor():
 
 
 
+@app.route('/admin/dashboard/edit/<id>' , methods=["GET", "POST"])
+def edit_dashboard(id):
+    user = User.query.filter(User.id == id).first_or_404()
+
+    if request.method == "GET":
+
+        return render_template("admin/edit.html", user=user)
+    else:
+        username = request.form.get('username',None)
+        email = request.form.get('email',None)
+        phone = request.form.get('phone',None)
+
+        user.username = username
+        user.email = email
+        user.phone = phone
+
+        db.session.commit()
+
+        return redirect(url_for("admin.edit_dashboard", id=id))
+
+
+
+
+@app.route('/admin/dashboard/PDF/<id>' , methods=["GET"])
+def PDF_dashboard(id):
+    if request.method == "GET":
+
+        user = User.query.filter(User.id == id).first_or_404()
+
+        return render_template("admin/PDF.html", user=user)
+    else:
+        username = request.form.get('username',None)
+        email = request.form.get('email',None)
+        phone = request.form.get('phone',None)
+
+        p = User(username=username, email=email, phone=phone)
+        db.session.add(p)
+        db.session.commit()
+
+        return "done"
+
+
+

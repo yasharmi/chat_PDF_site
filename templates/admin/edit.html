@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block header %}
+
+    <title>editor</title>
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>create user</h1>
+    <form action="#" method="post">
+        <input type="text" name="username" value="{{ user.username }}" placeholder="username"><br>
+        <input type="email" name="email" value="{{ user.email }}" placeholder="email"><br>
+        <input type="number" name="phone" value="{{ user.phone }}" placeholder="phone"><br>
+        <input type="submit">
+    </form>
+{% endblock %}
+
+

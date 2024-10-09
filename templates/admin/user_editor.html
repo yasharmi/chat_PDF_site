@@ -31,11 +31,11 @@
 
         {% for p in user %}
             <tr>
-                <td>{{ p.username }}</td>
-                <td>{{ p.email }}</td>
-                <td>{{ p.phone }}</td>
-                <td><a href="/admin/dashboard/user_editor/{{ p.id }}">edit</a></td>
-                <td><a href="/admin/dashboard/PDF/{{ p.id }}">link</a></td>
+                <td>--{{ p.username }}--</td>
+                <td>--{{ p.email }}--</td>
+                <td>--{{ p.phone }}--</td>
+                <td><a href="/admin/dashboard/edit/{{ p.id }}">--edit--</a></td>
+                <td><a href="/admin/dashboard/PDF/{{ p.id }}">--link--</a></td>
             </tr>
         {% endfor %}
 
