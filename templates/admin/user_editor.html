@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block header %}
+
+    <title>user_editor</title>
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>create user</h1>
+    <form action="#" method="post">
+        <input type="text" name="username" placeholder="username"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="number" name="phone" placeholder="phone">
+        <input type="submit">
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>users list</h1>
+    <table>
+        <tr>
+            <th>--username--</th>
+            <th>--email--</th>
+            <th>--phone--</th>
+            <th>--edit--</th>
+            <th>--PDF text link--</th>
+        </tr>
+
+        {% for p in user %}
+            <tr>
+                <td>{{ p.username }}</td>
+                <td>{{ p.email }}</td>
+                <td>{{ p.phone }}</td>
+                <td><a href="/admin/dashboard/user_editor/{{ p.id }}">edit</a></td>
+                <td><a href="/admin/dashboard/PDF/{{ p.id }}">link</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
+
+
