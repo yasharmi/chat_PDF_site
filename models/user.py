@@ -3,6 +3,8 @@ from extentions import db
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    usename = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.string)
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True)
+    username = Column(String(20), unique=True, nullable=False, index=True)
+    email = Column(String, nullable=False, index=True)
+    phone = Column(String, nullable=False, index=True)
